@@ -239,7 +239,7 @@ if st.button("Generate Music 🎵"):
         events_json = json.dumps(events, indent=2)
         print(events_json)
 
-        client = genai.Client(api_key="AIzaSyD1s5Cw5rfV_daH0NC1mD3m05U8gWRvp1Q")
+        client = genai.Client(api_key="YOUR_API_KEY")
         response = client.models.generate_content(
             model="gemini-2.0-flash",
             contents=f'Analyze the MIDI output: {events_json} but do not return the analysis and generate lyrics for a song (speed 120 bpm) with the keywords: {prompt}. Only return the lyrics with their corresponding chords for the entire duration of the song'
@@ -260,3 +260,4 @@ if st.button("Generate Music 🎵"):
         # --- Display Audio ---
         st.subheader("Generated Music")
         st.audio("output.wav", format="audio/wav")
+
